@@ -10,28 +10,40 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php
-		if ( is_singular() ) :
-			the_title( '<h1 class="entry-title">', '</h1>' );
-		else :
-			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-		endif;
+	<div class="post-title-wrapper">
+		<header class="entry-header">
+			<?php
+			if ( is_singular() ) :
+				the_title( '<h1 class="entry-title">', '</h1>' ); // Headline for singular posts
+			else :
+				the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+			endif;
 
-		if ( 'post' === get_post_type() ) :
-			?>
-			<div class="entry-meta">
-				<?php
-				wickie_posted_on();
-				wickie_posted_by();
+			if ( 'post' === get_post_type() ) :
 				?>
-			</div><!-- .entry-meta -->
-		<?php endif; ?>
-	</header><!-- .entry-header -->
+				<div class="entry-meta"> <!-- Meta Info for singular posts -->
+					<?php
+						wickie_posted_on();
+						// Display categories as plain text, comma-separated, no links
+						$categories = get_the_category();
+						if ( $categories ) {
+							$cat_names = array();
+							foreach ( $categories as $cat ) {
+								$cat_names[] = esc_html( $cat->name );
+							}
+							echo '<span>' . implode( ', ', $cat_names ) . '</span>';
+						}
+					?>
+				</div><!-- .entry-meta --> 
+			<?php endif; ?>
+		</header><!-- .entry-header -->
+		<?php wickie_post_thumbnail(); ?>
+	</div>
 
-	<?php wickie_post_thumbnail(); ?>
 
-	<div class="entry-content">
+
+
+	<div class="entry-content"> <!-- Content for singular posts -->
 		<?php
 		the_content(
 			sprintf(
@@ -56,8 +68,4 @@
 		);
 		?>
 	</div><!-- .entry-content -->
-
-	<footer class="entry-footer">
-		<?php wickie_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->

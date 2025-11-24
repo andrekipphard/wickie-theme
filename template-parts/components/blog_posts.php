@@ -5,6 +5,7 @@
     $backgroundColor = get_sub_field('background_color');
     $textColor = get_sub_field('text_color');
     $fullHeight = get_sub_field('full_height');
+    $posts_count = get_sub_field('number_of_blog_posts_to_show');
 ?>
 <section class="blog-posts<?php if($fullHeight === 'Yes'):?> full-height<?php endif;?>" style="
     <?php if ($textColor): ?> color: <?= $textColor; ?>; <?php endif; ?>
@@ -21,26 +22,37 @@
         </div>
         <div class="blog-posts-wrapper">
             <?php
-            if( have_rows('blog_post')):
-                while( have_rows('blog_post') ): the_row();
-                $blogPostUrl = get_sub_field('blog_post_url');
-                $blogPostTitle = get_sub_field('blog_post_title');
-                $blogPostImageUrl = get_sub_field('blog_post_image_url');
-                $blogPostCategory = get_sub_field('blog_post_category');
-                $blogPostDate = get_sub_field('blog_post_date');
-                $blogPostExcerpt = get_sub_field('blog_post_excerpt');
-				$newTab = get_sub_field('new_tab');
+            // Get ACF field for number of posts to show (set this field in ACF, e.g. as 'blog_posts_count')
+            if (!$posts_count) {
+                $posts_count = -1; // Show all if not set
+            }
+            $query = new WP_Query([
+                'post_type' => 'post',
+                'posts_per_page' => $posts_count,
+                'post_status' => 'publish',
+            ]);
+            if ($query->have_posts()):
+                while ($query->have_posts()): $query->the_post();
+                    $post_url = get_permalink();
+                    $post_title = get_the_title();
+                    $post_image = get_the_post_thumbnail_url(get_the_ID(), 'large');
+                    $post_categories = get_the_category();
+                    $post_category = $post_categories ? esc_html($post_categories[0]->name) : '';
+                    $post_date = get_the_date();
+                    $post_excerpt = get_the_excerpt();
             ?>
-                <a class="blog-post" href="<?= $blogPostUrl ?>"<?php if($newTab === 'Yes'):?> target="_blank"<?php endif;?>>
-                    <img class="w-100" loading="lazy" decoding="async" src="<?= $blogPostImageUrl ?>" alt="<?= $blogPostTitle ?>">
+                <a class="blog-post" href="<?= esc_url($post_url) ?>" target="_blank" rel="noopener noreferrer">
+                    <?php if($post_image): ?>
+                        <img class="w-100" loading="lazy" decoding="async" src="<?= esc_url($post_image) ?>" alt="<?= esc_attr($post_title) ?>">
+                    <?php endif; ?>
                     <div class="content">
                         <div class="text">
                             <div class="blog-post-info">
-                                <span class="highlight"><?= $blogPostCategory ?></span>
-                                <span><?= $blogPostDate ?></span>
+                                <span class="highlight"><?= $post_category ?></span>
+                                <span><?= esc_html($post_date) ?></span>
                             </div>
-                            <h3 class="title"><?= $blogPostTitle ?></h3>
-                            <span><?= $blogPostExcerpt?></span>
+                            <h3 class="title"><?= esc_html($post_title) ?></h3>
+                            <span><?= esc_html($post_excerpt)?></span>
                         </div>
                         <span class="btn btn-link">
                             Read more
@@ -50,6 +62,7 @@
                 </a>
             <?php
                 endwhile;
+                wp_reset_postdata();
             endif;
             ?>
         </div>
