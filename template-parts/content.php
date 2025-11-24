@@ -10,8 +10,13 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<div class="post-title-wrapper">
-		<header class="entry-header">
+   <?php if ( has_post_thumbnail() ) : ?>
+	   <div class="post-hero-image">
+		   <?php the_post_thumbnail('full', ['class' => 'w-100', 'style' => 'width:100%;height:auto;display:block;']); ?>
+	   </div>
+   <?php endif; ?>
+   <div class="post-title-wrapper">
+	   <header class="entry-header">
 			<?php
 			if ( is_singular() ) :
 				the_title( '<h1 class="entry-title">', '</h1>' ); // Headline for singular posts
@@ -37,7 +42,7 @@
 				</div><!-- .entry-meta --> 
 			<?php endif; ?>
 		</header><!-- .entry-header -->
-		<?php wickie_post_thumbnail(); ?>
+		<!-- wickie_post_thumbnail(); removed for hero image test -->
 	</div>
 
 

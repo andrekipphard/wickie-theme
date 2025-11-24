@@ -17047,12 +17047,9 @@ textarea.form-control-lg {
 }
 @media (min-width: 1200px) {
   .single .post-title-wrapper {
-    margin-bottom: 7rem;
+    margin-bottom: 3rem;
     gap: 50px;
     flex-direction: row;
-  }
-  .single .post-title-wrapper > * {
-    width: 50%;
   }
 }
 .single .entry-meta {
