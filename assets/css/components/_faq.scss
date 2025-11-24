@@ -1,0 +1,67 @@
+.faq {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+
+    .container {
+        .title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .accordion {
+            .accordion-item,
+            .accordion-button {
+                background-color: transparent;
+                border: 0;
+            }
+
+            .accordion-item:not(:last-child) {
+                border-bottom: 1px solid #E0E0E7;
+            }
+
+            .accordion-button:not(.collapsed) {
+                box-shadow: none;
+            }
+
+            .accordion-button::after {
+                background-color: $secondary;
+                border-radius: 50px;
+                color: #FFFFFF;
+                content: "\f282";
+                font-family: bootstrap-icons;
+                font-size: 15px;
+                background-image: none;
+                padding-left: 3px;
+                padding-top: 2px;
+            }
+
+            .accordion-button {
+                padding-left: 0px;
+                padding-right: 0px;
+                font-size: 1.25rem;
+            }
+        }
+    }
+
+    // Responsive für Tablets (max-width: 1024px)
+    @media (max-width: 1024px) {
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+        .container {
+            .title {
+                margin-bottom: 30px;
+            }
+        }
+    }
+
+    // Responsive für Mobilgeräte (max-width: 768px)
+    @media (max-width: 768px) {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+        .container {
+            .title {
+                margin-bottom: 20px;
+            }
+        }
+    }
+}

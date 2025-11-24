@@ -1,0 +1,105 @@
+.icon-boxes {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+
+    .container {
+        .title {
+            gap: 20px;
+            display: flex;
+            flex-direction: column;
+            .subline {
+                text-align: center;
+            }
+        }
+
+        .icon-boxes-wrapper {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 20px;
+
+            .icon-box {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                flex-basis: calc(33.333% - 26.66px); // Standard für Desktop (3 Boxen pro Zeile)
+                margin-bottom: 20px;
+
+                img {
+                    height: 50px; /* Höhe der Icons */
+                    width: auto;
+                    object-fit: contain;
+                }
+
+                i {
+                    color: $secondary;
+                    font-size: 3rem;
+                }
+            }
+        }
+
+        .has-subline {
+            margin-top: 50px;
+        }
+    }
+
+    // Responsive für Tablets (max-width: 1024px)
+    @media (max-width: 1024px) {
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+        .container {
+            .title {
+                text-align: center;
+            }
+            .icon-boxes-wrapper {
+                .icon-box {
+                    flex-basis: calc(50% - 20px)!important; // 2 Boxen pro Zeile
+                    margin-bottom: 20px;
+                    img {
+                        align-self: center!important;
+                        width: 200px!important;
+                        margin-bottom: 0px!important;
+                    }
+                }
+            }
+        }
+
+
+    }
+
+    // Responsive für Mobilgeräte (max-width: 768px)
+    @media (max-width: 768px) {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+        .container {
+            .icon-boxes-wrapper {
+                flex-direction: column; // Boxen untereinander stapeln
+                align-items: center;    // Zentrieren auf kleineren Bildschirmen
+    
+                .icon-box {
+                    flex-basis: 100%!important;    // Eine Box pro Zeile
+                    text-align: center;  // Text und Icons zentrieren
+                    margin-bottom: 20px;
+    
+                    i {
+                        font-size: 2.5rem; // Kleinere Icons für Mobilgeräte
+                    }
+    
+                    h3 {
+                        font-size: 18px; // Kleinere Schrift für die Headline
+                        margin-bottom: 0px;
+                    }
+    
+                    span {
+                        font-size: 16px; // Kleinere Schrift für den Text
+                    }
+                }
+            }
+        }
+
+
+    }
+}

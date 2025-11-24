@@ -1,0 +1,265 @@
+.pricing {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+
+    .pricing-wrapper {
+        .title {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 50px;
+            text-align: var(--text-position);
+        }
+
+        .pricing-boxes {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+
+            .pricing-box {
+                background-color: #FFFFFF;
+                border-radius: 20px;
+                padding: 40px;
+                box-shadow: 0px 0px 40px -15px rgba(45.99999999999999, 66.99999999999999, 117, 0.5);
+                flex: 0 0 50%; // 2 Spalten Layout
+
+                .highlight {
+                    font-size: 13px;
+                }
+
+                h3 {
+                    font-size: 44px;
+                }
+
+                h4 {
+                    font-size: 17px;
+                    margin-bottom: 40px;
+                }
+
+                span {
+                    font-size: 20px;
+                }
+
+                .list-group-numbered {
+                    margin-top: 40px;
+                    padding-left: 0;
+
+                    .coming-soon {
+                        position: relative;
+                        pointer-events: none; /* Disable interaction */
+                        margin-left: 0;
+
+                        &::before {
+                            background-color: rgba(147, 225, 0, 0.5)!important;
+                        }
+
+                        h5 {
+                            color: #637983;
+                        }
+                    }
+
+                    .list-group-item {
+                        display: flex;
+                        align-items: flex-start;
+                        margin-bottom: 20px;
+
+                        &::before {
+                            text-align: center;
+                            margin-right: 20px;
+                            font-size: 15px;
+                            background-color: $secondary;
+                            border-radius: 50px;
+                            padding: 5px 8px 3px 8px;
+                            color: #FFFFFF;
+                            content: "\f272";
+                            font-family: bootstrap-icons;
+                        }
+
+                        .list-group-item-content {
+                            h5 {
+                                font-size: 17px;
+                            }
+
+                            span {
+                                color:#00000099;
+                                font-size: 15px;
+                            }
+                        }
+                    }
+                }
+
+                .btn-link {
+                    margin-top: 40px;
+                    font-size: 16px;
+                }
+
+                &:not(:nth-child(1)) {
+                    background-color: $primary;
+                    color: #FFFFFF;
+
+                    .list-group-numbered {
+                        .list-group-item {
+                            .list-group-item-content {
+                                span {
+                                    color:#FFFFFF99;
+                                }
+                            }
+                        }
+                    }
+
+                    .btn-link {
+                        color: #FFFFFF;
+
+                        i {
+                            background-color: #FFFFFF;
+                            color: $primary;
+                        }
+                    }
+
+                    .btn-link:hover {
+                        color: $secondary;
+
+                        i {
+                            background-color: $secondary;
+                            color: #FFFFFF;
+                        }
+                    }
+                }
+
+                &:hover {
+                    .btn-link {
+                        color: $secondary;
+                    
+                        i {
+                            background-color: $secondary;
+                            color: #FFFFFF;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // Media Queries für Tablets
+    @media (max-width: 1024px) {
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+        .pricing-wrapper {
+            .title {
+                margin-bottom: 30px;
+                text-align: center;
+            }
+            .pricing-boxes {
+                flex-direction: column; // Wechsel zu einer Spalte
+                gap: 20px;
+    
+                .pricing-box {
+                    flex: 1 0 100%; // Volle Breite für jede Box
+                    padding: 30px;
+    
+                    h3 {
+                        font-size: 36px;
+                    }
+    
+                    h4 {
+                        font-size: 16px;
+                        margin-bottom: 30px;
+                    }
+    
+                    span {
+                        font-size: 18px;
+                    }
+                    .highlight {
+                        font-size: 0.7rem;
+                    }
+    
+                    .list-group-numbered {
+                        margin-top: 30px;
+                        
+                        .list-group-item {
+                            margin-bottom: 15px;
+    
+                            &::before {
+                                font-size: 14px;
+                            }
+    
+                            .list-group-item-content {
+                                h5 {
+                                    font-size: 16px;
+                                    margin-bottom: 0;
+                                }
+    
+                                span {
+                                    font-size: 14px;
+                                }
+                            }
+                        }
+                    }
+    
+                    .btn-link {
+                        margin-top: 30px;
+                    }
+                }
+            }
+        }
+
+
+
+    }
+
+    // Media Queries für Mobilgeräte
+    @media (max-width: 768px) {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+        .pricing-wrapper {
+            .pricing-boxes {
+                flex-direction: column; // Spalten werden gestapelt
+                gap: 15px;
+    
+                .pricing-box {
+                    padding: 20px;
+    
+                    h3 {
+                        font-size: 30px;
+                    }
+    
+                    h4 {
+                        font-size: 14px;
+                        margin-bottom: 20px;
+                    }
+    
+                    span {
+                        font-size: 16px;
+                    }
+    
+                    .list-group-numbered {
+                        margin-top: 20px;
+    
+                        .list-group-item {
+                            margin-bottom: 10px;
+    
+                            &::before {
+                                font-size: 12px;
+                            }
+    
+                            .list-group-item-content {
+                                h5 {
+                                    font-size: 14px;
+                                }
+    
+                                span {
+                                    font-size: 13px;
+                                }
+                            }
+                        }
+                    }
+    
+                    .btn-link {
+                        margin-top: 20px;
+                    }
+                }
+            }
+        }
+
+    }
+}

@@ -1,0 +1,40 @@
+.swiper-slide {
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.swiper-slide img {
+    height: 100%; /* Set the image height to fill the slide */
+    width: auto;  /* Width will adjust to maintain aspect ratio */
+    object-fit: contain; /* Maintain aspect ratio and fit the image within the slide */
+}
+
+.row {
+    padding: 0 15px; // Fügen Sie Padding zu der Zeile hinzu, um den Abstand an den Rändern zu verbessern.
+}
+
+/* Responsive Anpassungen für Tablets (max-width: 1024px) */
+@media (max-width: 1024px) {
+    .swiper-slide {
+        height: 120px; /* Kleinere Höhe für Tablets */
+    }
+    
+    .swiper-slide img {
+        height: auto; /* Erlaubt eine variable Höhe */
+        max-height: 100%; /* Maximalhöhe an die Slide-Höhe anpassen */
+    }
+}
+
+/* Responsive Anpassungen für Handys (max-width: 768px) */
+@media (max-width: 768px) {
+    .swiper-slide {
+        height: 100px; /* Noch kleinere Höhe für Handys */
+    }
+
+    .swiper-slide img {
+        height: auto; /* Erlaubt eine variable Höhe */
+        max-height: 30px; /* Maximalhöhe an die Slide-Höhe anpassen */
+    }
+}

@@ -1,0 +1,186 @@
+.team {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+
+    .text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 80px;
+
+        h2 {
+            text-align: center;
+        }
+
+        .subline {
+            display: flex;
+            gap: 10px;
+            font-size: 18px;
+            margin-bottom: 20px;
+
+            .highlight {
+                display: flex;
+                align-items: center;
+            }
+        }
+    }
+
+    .team-members {
+        display: flex;
+        flex-direction: row;
+        gap: 100px;
+        flex-wrap: wrap;
+
+        .team-member {
+            flex-basis: calc(50% - 50px);
+            display: flex;
+            flex-direction: row;
+            gap: 60px;
+            align-items: center;
+
+            h4 {
+                font-size: 1.25rem;
+                color: rgba(0, 0, 0, 0.5);
+                font-weight: normal;
+                margin-bottom: 20px;
+            }
+
+            .team-member-image {
+                position: relative;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 150px;
+                height: 150px;
+                flex-basis: calc(30% - 30px);
+
+                img {
+                    border-radius: 50%;
+                    width: 150px;
+                    height: 150px;
+                    object-fit: cover;
+                    z-index: 1;
+                    box-shadow: 0px 0px 40px -15px rgba(45.99999999999999, 66.99999999999999, 117, 0.5);
+                }
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100px;
+                    height: 100px;
+                    border-radius: 50%;
+                    background-color: var(--team-member-color);
+                    z-index: 0;
+                    transform: translate(var(--x-position, 0), var(--y-position, 0));
+                    transition: transform 0.3s ease;
+                }
+            }
+            .team-member-information {
+                flex-basis: calc(70% - 30px);
+            }
+        }
+    }
+
+    @media (max-width: 1400px) {
+        .team-members {
+            .team-member {
+                .team-member-image {
+                    img {
+                        width: 125px;
+                        height: 125px;
+                    }
+
+                }
+            }
+        }
+    }
+
+    @media (max-width: 1200px) {
+        .team-members {
+            .team-member {
+                .team-member-image {
+                    &::before {
+                        transform: translate(calc(min(var(--x-position, 0), 50px)), var(--y-position, 0));
+                    }
+                    img {
+                        width: 100px;
+                        height: 100px;
+                    }
+
+                }
+            }
+        }
+    }
+
+    @media (max-width: 1024px) {
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+
+        .text {
+            text-align: center;
+        }
+
+        .team-members {
+            gap: 60px;
+            .team-member {
+                flex-basis: calc(50% - 30px);
+                flex-direction: column;
+                gap: 40px;
+                text-align: center;
+
+                .team-member-image {
+                    width: 120px;
+                    height: 120px;
+                    &::before {
+                        transform: translate(var(--x-position, 0), calc(min(var(--y-position, 0), 50px)));
+                    }
+                    
+                    img {
+                        width: 120px;
+                        height: 120px;
+                    }
+                }
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+
+        .text {
+            margin-bottom: 40px;
+        }
+
+        .team-members {
+            gap: 40px;
+            .team-member {
+                gap: 30px;
+
+                .team-member-image {
+                    width: 100px;
+                    height: 100px;
+
+                    &::before {
+                        transform: translate(var(--x-position, 0), calc(min(var(--y-position, 0), 20px)));
+                    }
+
+                    img {
+                        width: 100px;
+                        height: 100px;
+                    }
+                }
+            }
+        }
+    }
+    @media (max-width: 480px) {
+        .team-members {
+            .team-member {
+                flex-basis: 100%;
+            }
+        }
+
+    }
+}

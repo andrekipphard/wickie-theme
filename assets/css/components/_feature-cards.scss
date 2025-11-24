@@ -1,0 +1,108 @@
+.feature-cards {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+    
+    .container {
+        .text {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 50px;
+
+            h2 {
+                text-align: center;
+            }
+
+            .subline {
+                display: flex;
+                gap: 10px;
+                font-size: 18px;
+                margin-bottom: 20px;
+
+                .highlight {
+                    display: flex;
+                    align-items: center;
+                }
+            }
+        }
+
+        .content-boxes {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+
+            .content-box {
+                background-color: #FFFFFF;
+                border-radius: 20px;
+                box-shadow: 0px 0px 40px -15px rgba(45.99999999999999, 66.99999999999999, 117, 0.5);
+                flex-basis: calc(33.333% - 20px); /* Desktop */
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                
+                .content {
+                    padding: 30px;
+                    .title {
+                        font-size: 30px;
+                    }
+                }
+
+                .image {
+                    padding-bottom: 30px;
+                    padding-left: 30px;
+                    padding-right: 30px;
+                    display: flex;
+                    justify-content: center;
+                }
+            }
+        }
+    }
+    /* Tablet - Anpassung */
+    @media (max-width: 1023px) {
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+        .container {
+            .content-boxes {
+                .content-box {
+                    flex-basis: 100%; /* Eine Spalte */
+                    .content {
+                        .title {
+                            font-size: 25px; /* Kleinere Schriftgröße auf Tablets */
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+    /* Mobile - Anpassung */
+    @media (max-width: 767px) {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+        .container {
+            .text {
+                margin-bottom: 20px;
+            }
+            .content-boxes {
+                .content-box {
+                    flex-basis: 100%; /* Eine Spalte */
+                    .content {
+                        padding: 20px; /* Weniger Padding */
+                        .title {
+                            font-size: 20px; /* Noch kleinere Schriftgröße auf Mobilgeräten */
+                        }
+                    }
+                    .image {
+                        img {
+                            width: 200px;
+                        }
+                    }
+                }
+            }
+        }
+
+
+
+    }
+}
+

@@ -1,0 +1,109 @@
+.feature-boxes {
+    padding-bottom: 7rem;
+
+    .container {
+        .feature-box-wrapper {
+            display: flex;
+            gap: 20px;
+            flex-direction: row;
+            flex-wrap: wrap;
+
+            .feature-box {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                border-radius: 20px;
+                padding: 40px;
+                box-shadow: 0px 0px 40px -15px rgba(46, 67, 117, 0.5);
+                flex-basis: calc(33.333% - 13.33px);  // 3 Boxen pro Reihe
+
+                .icon {
+                    margin-bottom: 20px;
+                    i {
+                        font-size: 30px;
+                        background-color: $secondary;
+                        border-radius: 50px;
+                        padding: 15px 18px;
+                        color: #FFFFFF;
+                    }
+                }
+
+                span {
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 1024px) {  // Für Tablets
+        padding-bottom: 5rem;
+        .container {
+            .feature-box-wrapper {
+                gap: 30px;
+
+                .feature-box {
+                    flex-basis: calc(50% - 15px);  // 2 Boxen pro Reihe
+                    padding: 30px;
+
+                    .icon i {
+                        font-size: 25px;
+                        padding: 12px 15px;
+                    }
+
+                    span {
+                        font-size: 18px;
+                    }
+                }
+            }
+        }
+    }
+
+    @media (max-width: 768px) {  // Für kleinere Tablets und größere Smartphones
+        padding-bottom: 3rem;
+        .container {
+            .feature-box-wrapper {
+                gap: 30px;
+
+                .feature-box {
+                    flex-basis: calc(50% - 15px);  // 2 Boxen pro Reihe, aber kompakter
+                    padding: 20px;
+
+                    .icon i {
+                        font-size: 22px;
+                        padding: 10px 12px;
+                    }
+
+                    span {
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+    }
+
+    @media (max-width: 576px) {  // Für Smartphones
+        .container {
+            .feature-box-wrapper {
+                gap: 30px;
+
+                .feature-box {
+                    flex-basis: 100%;  // 1 Box pro Reihe
+                    padding: 20px;
+                    
+                    .icon {
+                        margin-bottom: 0;
+                        text-align: center;
+                        i {
+                            font-size: 20px;
+                            padding: 8px 10px;
+                        }
+                    }
+
+                    span {
+                        font-size: 16px;
+                    }
+                }
+            }
+        }
+    }
+}

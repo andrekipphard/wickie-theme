@@ -1,0 +1,126 @@
+.popular-services {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+
+    .mobile-button {
+        display:none;
+    }
+    .desktop-button {
+        display:flex;
+        width: fit-content;
+    }
+
+    .title {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 50px;
+    }
+
+    .content-boxes {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        flex-wrap: wrap;
+
+        .content-box {
+            background-color: #FFFFFF;
+            border-radius: 20px;
+            box-shadow: 0px 0px 40px -15px rgba(45.99999999999999, 66.99999999999999, 117, 0.5);
+            flex-basis: calc(25% - 15px); // Für Desktop
+
+            img {
+                border-top-left-radius: 20px;
+                border-top-right-radius: 20px;
+            }
+    
+            .content {
+                padding: 30px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+
+                .text {
+                    .title {
+                        margin-top: 10px;
+                        font-size: 20px;
+                        font-weight: 600;
+                    }
+                }
+            }
+        }
+    }
+
+    // Media Queries für Tablets
+    @media (max-width: 1024px) {
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+
+        .desktop-button {
+            margin-inline: auto;
+        }
+
+        .title {
+            flex-direction: column;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .content-boxes {
+            gap: 15px;
+
+            .content-box {
+                flex-basis: calc(50% - 10px); // 2 Spalten
+
+                h3 {
+                    text-align: left;
+                }
+            }
+        }
+    }
+
+    // Media Queries für Mobilgeräte
+    @media (max-width: 768px) {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+
+        
+        .mobile-button {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            width: fit-content;
+            margin-inline: auto;
+        }
+        .desktop-button {
+            display:none;
+        }
+
+        .title {
+            flex-direction: column;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .content-boxes {
+            flex-direction: column;
+            gap: 20px;
+
+            .image {
+                height: 200px;
+                overflow: hidden;
+            }
+
+            .content-box {
+                flex-basis: 100%; // 1 Spalte
+            }
+
+            .content {
+                padding: 20px; // Etwas weniger Padding für Mobilgeräte
+            }
+
+            .content .text .title {
+                font-size: 18px; // Kleinere Schriftgröße
+            }
+        }
+    }
+}

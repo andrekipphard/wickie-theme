@@ -1,0 +1,175 @@
+.hero-single {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+
+    .container {
+        .content-image {
+            display: flex;
+            gap: 20px;
+
+            .content {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                gap: 20px;
+                flex: 0 0 50%;
+            }
+
+            .image {
+                flex: 0 0 50%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                img {
+                    width: 100%;
+                    border-radius: 50px;
+                }
+            }
+        }
+
+        .cta.multiple-buttons {
+            margin-top: 50px;
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            flex-wrap: wrap;
+
+            a.btn-white {
+                justify-content: center;
+            }
+                
+
+            a.btn-white:hover {
+                color: #ffffff;
+                background-color: $secondary;
+                border-color: $secondary;
+            }
+        }
+
+
+        .cta.contact-button {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            flex-wrap: wrap;
+
+            a.btn-link {
+                color: $secondary;
+                font-size: 20px;
+
+                i {
+                    background-color: $secondary;
+                    padding-top: 10px;
+                    padding-bottom: 10px;
+                    font-size: 36px;
+                    margin-right: 20px;
+                }
+            }
+                
+
+            a.btn-link:hover {
+                color: $primary;
+
+                i {
+                    background-color: $primary;
+                }
+            }
+        }
+    }
+
+    // Media Queries für Tablets
+    @media (max-width: 1024px) {
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+
+        .container {
+            .content-image {
+                flex-direction: column;
+                gap: 30px;
+
+                .content {
+                    text-align: center;
+                    flex-basis: 100%;
+                    align-items: center;
+                }
+
+                .image {
+                    flex-basis: 100%;
+                    img {
+                        width: 70%;
+                    }
+                }
+            }
+
+            .cta.multiple-buttons {
+                justify-content: center;
+
+                a {
+                    button {
+                        justify-self: center;
+                    }
+                }
+            }
+            .cta.contact-button {
+                margin-top: 0px;
+                margin-bottom: 10px;
+                a {
+                    .btn-link {
+                        i {
+                            font-size: 24px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // Media Queries für Mobilgeräte
+    @media (max-width: 768px) {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+
+        .container {
+            .content-image {
+                flex-direction: column;
+                gap: 20px;
+
+                .content {
+                    text-align: center;
+                    flex-basis: 100%;
+                    align-items: center;
+                }
+
+                .image {
+                    flex-basis: 100%;
+                    img {
+                        height: 200px;
+                        width: auto;
+                    }
+                }
+            }
+
+            .cta.multiple-buttons {
+                flex-direction: column;
+                gap: 10px;
+
+                a {
+                    width: 100%;
+                }
+            }
+
+            .cta.contact-button {
+                flex-direction: column;
+                gap: 10px;
+
+                a {
+                    width: 100%;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}

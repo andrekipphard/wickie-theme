@@ -1,0 +1,166 @@
+.banner-two-buttons {
+    background: linear-gradient(to right, #93E100, #00A6FF);
+
+    .banner-two-buttons-wrapper {
+        display: flex;
+        gap: 40px;
+
+        .content {
+            padding-right: 100px;
+            flex: 0 0 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 20px;
+            align-items: flex-start;
+            color: #FFFFFF;
+
+            span {
+                font-size: 18px;
+            }
+
+            .cta {
+                margin-top: 20px;
+                display: flex;
+                gap: 20px;
+            }
+        }
+
+        .image {
+            flex: 0 0 50%;
+            display: flex;
+            align-items: center;
+
+            .images {
+                display: flex;
+                gap: 20px;
+                position: relative;
+
+                img {
+                    align-items: center;
+                    object-fit: contain;
+                    height: auto;
+                }
+
+                .overlay-image {
+                    position: absolute;
+                    top: -100px;
+                    left: -100px;
+                }
+            }
+        }
+    }
+    @media (max-width: 1199px) {
+        padding-top: 5rem;
+        .banner-two-buttons-wrapper {
+            .content {
+                padding-bottom: 5rem;
+                .cta {
+                    flex-direction: column;
+                    width: 100%;
+                    button {
+                        width: 100%;
+                        display: flex;
+                        justify-content: center;
+                    }
+                }
+            }
+            .image {
+                align-items:flex-end;
+            }
+        }
+    }
+    // Media Queries für Tablets
+    @media (max-width: 1024px) {
+        .banner-two-buttons-wrapper {
+            flex-direction: column;
+            gap: 30px;
+
+            .content {
+                padding-right: 0;
+                flex-basis: 100%;
+                align-items: center;
+                text-align: center;
+                padding-bottom: 0rem;
+
+                .cta {
+                    justify-content: center;
+                    margin-top: 30px;
+                }
+            }
+
+            .image {
+                flex-basis: 100%;
+                justify-content: center;
+                margin-top: 20px;
+
+                .images {
+                    flex-direction: row;
+                    gap: 15px;
+                    align-items: center;
+                    justify-content: center;
+                    padding-top: 0;
+
+                    img {
+                        width: 50%;
+                    }
+
+                    .overlay-image {
+                        width: 30%;
+                        top: -100px;
+                        left: -100px;
+                    }
+                }
+            }
+        }
+    }
+
+    // Media Queries für Mobilgeräte
+    @media (max-width: 768px) {
+        padding-top: 3rem;
+        .banner-two-buttons-wrapper {
+            flex-direction: column;
+            gap: 20px;
+
+            .content {
+                padding-right: 0;
+                flex-basis: 100%;
+                align-items: center;
+                text-align: center;
+
+                .cta {
+                    flex-direction: row;
+                    gap: 10px;
+                    justify-content: center;
+                    margin-top: 20px;
+                    flex-wrap: wrap;
+                    width: 100%;
+                        button {
+                            flex-basis: 100%;
+                            width: 100%;
+                            display: flex;
+                                justify-content: center;
+                        }
+                    }
+
+
+                
+            }
+
+            .image {
+                flex-basis: 100%;
+
+                .images {
+                    flex-direction: column;
+                    gap: 10px;
+                    align-items: center;
+                    padding-top: 0;
+
+                    img {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}

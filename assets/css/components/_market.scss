@@ -1,0 +1,315 @@
+.market {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+
+    .change-indicator {
+        font-size: 0.9rem; 
+        margin-left: 8px
+    }
+    .container {
+        display: flex;
+        gap: 50px;
+
+        .content-wrapper {
+            box-shadow: 0px 0px 40px -15px rgba(45, 66, 117, 0.5);
+            background: #FFFFFF;
+            display: flex;
+            border-radius: 20px;
+            padding: 40px;
+            flex-direction: column;
+            width: 100%;
+
+            .controls {
+                margin-top: 40px;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+
+                .selectors {
+                    display: flex;
+                    flex-direction: row;
+                    gap: 20px;
+
+                    .currency-selector, .timeframe-selector {
+                        #currency, #timeframe {
+                            display: flex;
+                            align-items: center;
+                            column-gap: 4px;
+                            line-height: 1.425 !important;
+                            cursor: pointer;
+                            padding: 3px 5px;
+                            border-radius: 8px;
+                            background-color: #EFF2F5;
+                            border: none;
+                        }
+                    }
+                }
+            }
+
+            .market-table {
+                #market-values-table {
+                    width: 100%;
+                    margin-top: 40px;
+                    border-collapse: separate;
+                    border-spacing: 0 15px;
+
+                    th {
+                        padding-left: 15px;
+                        padding-right: 15px;
+                    }
+
+                    #market-values-container {
+                        .market-value {
+                            border-radius: 8px; /* Ensure rounded corners */
+                            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+                            overflow: hidden;
+                            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+
+                            td {
+                                padding: 15px;
+                                font-size: 1.25rem;
+                            }
+
+                            .currency {
+                                display: flex;
+                                align-items: center;
+                                gap: 20px;
+
+                                h3 {
+                                    margin-left: -1px;
+                                }
+
+                                img {
+                                    height: 65px !important;
+                                    width: auto !important;
+                                }
+                            }
+
+                            /* Style for price and change indicator */
+                            #market-values-container .market-value td:nth-child(4) {
+                                display: flex;
+                                align-items: center;
+                                gap: 8px;
+                            }
+                        }
+
+                        .market-value:not(:last-child) {
+                            border-bottom: 1px solid #d3d3d3;
+                        }
+
+                        /* Highlight effect on hover */
+                        .market-value:hover {
+                            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Stronger shadow */
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @media (max-width: 1023px) {
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+        .market .container .content-wrapper .market-table #market-values-table #market-values-container .market-value .currency img {
+            height: 65px !important;
+            width: auto !important;
+        }
+
+        .container {
+            flex-direction: column;
+            gap: 20px;
+
+            .content-wrapper {
+                padding: 20px;
+
+                .market-table {
+                    #market-values-table {
+                        margin-top: 20px;
+                        th {
+                            padding-left: 10px;
+                            padding-right: 10px;
+                            font-size: 1rem;
+                        }
+                        #market-values-container {
+                            .market-value {
+                                td {
+                                    padding: 10px;
+                                }
+                            }
+                            
+                            .price {
+                                display: flex;
+                                flex-direction: column;
+                                align-items: center;
+                            }
+                            .image {
+                                min-width: 50px;
+                            }
+                        }
+
+                        td {
+                            font-size: 1rem;
+                            padding: 10px;
+
+                        }
+
+                        img {
+                            height: 50px !important;
+                        }
+                    }
+                }
+
+                .controls {
+                    gap: 10px;
+                    margin-top: 20px;
+
+                    .selectors {
+                        gap: 10px;
+                    }
+                }
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+        .market .container .content-wrapper .market-table #market-values-table #market-values-container .market-value .currency img {
+            height: 65px !important;
+            width: auto !important;
+        }
+
+        .container {
+            flex-direction: column;
+            gap: 20px;
+
+            .content-wrapper {
+                padding: 20px;
+
+                .market-table {
+                    #market-values-table {
+                        margin-top: 20px;
+                        th {
+                            padding-left: 10px;
+                            padding-right: 10px;
+                            font-size: 1rem;
+                        }
+                        #market-values-container {
+                            .market-value {
+                                td {
+                                    padding: 10px;
+                                }
+                            }
+                            
+                            .price {
+                                display: flex;
+                                flex-direction: column;
+                                align-items: center;
+                            }
+                            .image {
+                                min-width: 50px;
+                            }
+                        }
+
+                        td {
+                            font-size: 1rem;
+                            padding: 10px;
+
+                        }
+
+                        img {
+                            height: 50px !important;
+                        }
+                    }
+                }
+
+                .controls {
+                    gap: 10px;
+                    margin-top: 20px;
+
+                    .selectors {
+                        gap: 10px;
+                    }
+                }
+            }
+        }
+    }
+
+    @media (max-width: 480px) {
+        .container {
+            .content-wrapper {
+                .market-table {
+                    #market-values-table {
+                        #market-values-container {
+                            .market-value {
+                                .currency {
+                                    gap: 10px;
+                                }
+                                td {
+                                    padding: 5px;
+                                }
+                            }
+                            .image {
+                                min-width: 30px;
+                            }
+                        }
+                        th {
+                            font-size: 0.8rem;
+                        }
+    
+                        td {
+                            font-size: 0.8rem;
+                        }
+                    }
+                }
+    
+                .controls {
+                    .selectors {
+                        #currency, #timeframe {
+                            padding: 2px 4px;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+}
+.hidden {
+    display: none !important;
+}
+@media (max-width: 768px) {
+    .market .container .content-wrapper .market-table #market-values-table #market-values-container .market-value .currency img {
+        height: auto!important;
+        width: 50px!important;
+    }
+    .market .container .content-wrapper .market-table #market-values-table #market-values-container .market-value td, .market .container .content-wrapper .market-table #market-values-table #market-values-container .market-value .currency h3, .market .container .content-wrapper .market-table #market-values-table #market-values-container .market-value .currency .h3 {
+        font-size: 1rem;
+
+    }
+}
+@media (max-width: 480px) {
+    .market {
+        .price {
+            display: flex;
+            flex-direction: column;
+        }
+        h3 {
+            letter-spacing: 0;
+        }
+        .change-indicator {
+            font-size: 0.8rem;
+            margin-left: 0;
+        }
+    }
+    .market .container .content-wrapper .market-table #market-values-table #market-values-container .market-value td, .market .container .content-wrapper .market-table #market-values-table #market-values-container .market-value .currency h3, .market .container .content-wrapper .market-table #market-values-table #market-values-container .market-value .currency .h3 {
+        font-size: 0.8rem;
+
+    }
+    .market .container .content-wrapper .market-table #market-values-table #market-values-container .market-value .currency img {
+        height: auto!important;
+        width: 30px!important;
+    }
+
+
+}
