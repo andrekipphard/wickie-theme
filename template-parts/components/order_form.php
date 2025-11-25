@@ -58,6 +58,13 @@ $successMessage = 'Your order was successful. You will receive the invoice via E
                     <?= $text; ?>
                 </span>
             <?php endif; ?>
+            <?php $info_wickie_game_text = get_field('info_wickie_game_text', 'options'); ?>
+            <?php if($info_wickie_game_text): ?>
+                <div class="order-banner" role="status">
+                    <i class="bi bi-info-circle" aria-hidden="true"></i>
+                    Every 100th customer gets the Wickie game for free!
+                </div>
+            <?php endif; ?>
             <form method="post" action="<?php echo esc_url($_SERVER['REQUEST_URI']); ?>" class="contact-form-container">
                 <div class="form-group-inline">
                     <div class="form-group">
@@ -336,3 +343,22 @@ $successMessage = 'Your order was successful. You will receive the invoice via E
         </div>
     </div>
 </section>
+
+<style>
+.order-banner {
+  background: #002A3F;
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+  font-weight: 500;
+}
+.order-banner i {
+  color: #93E100;
+  font-size: 18px;
+}
+</style>

@@ -55,6 +55,8 @@
                                                                     $subSubMenuItemUrl = get_sub_field('sub_sub_menu_item_url');
                                                                     $subSubMenuItemComingSoon = get_sub_field('sub_sub_menu_item_coming_soon');
                                                                     $subSubMenuItemNewTab = get_sub_field('sub_sub_menu_item_new_tab');
+                                                                    $subSubMenuItemInfoWickieGame = get_sub_field('sub_sub_menu_item_info_wickie_game');
+                                                                    $info_wickie_game_text = get_field('info_wickie_game_text', 'options');
                                                                 ?>
                                                                     <?php if ($subSubMenuItemComingSoon === 'Nein'): ?><li><a class="dropdown-item" href="<?= $subSubMenuItemUrl; ?>" <?php if ($subSubMenuItemNewTab === 'Ja'): ?> target="_blank"<?php endif;?>><?= $subSubMenuItemName; ?><?php if ($subSubMenuItemComingSoon === 'Ja'): ?>
                                                                         <span class="coming-soon">
@@ -62,7 +64,41 @@
                                                                                 <i class="bi bi-flag"></i>COMING SOON
                                                                             </span>
                                                                         </span>
-                                                                    <?php endif; ?></a></li><?php endif;?>
+                                                                    <?php endif; ?>
+                                                                    <?php if ($subSubMenuItemInfoWickieGame === 'Ja' && $info_wickie_game_text): ?>
+                                                                        <span class="footer-info-tooltip" tabindex="0" style="display:inline-flex;align-items:center;cursor:pointer;position:relative;">
+                                                                            <span style="margin-bottom:0px;background:#93E100;border-radius:50%;width:22px;height:22px;display:flex;align-items:center;justify-content:center;margin-left:2px;">
+                                                                                <i class="bi bi-info-lg" style="color:#1D1D1D;font-size:14px;margin-right:0;"></i>
+                                                                            </span>
+                                                                            <span class="footer-info-tooltip-text" style="visibility:hidden;opacity:0;transition:opacity 0.2s;position:absolute;left:50%;bottom:120%;transform:translateX(-50%);background:#1D1D1D;color:#fff;padding:7px 12px;border-radius:8px;white-space:nowrap;z-index:10;font-size:13px;pointer-events:none;">Every 100th customer gets the Wickie game for free!</span>
+                                                                        </span>
+                                                                        <script>
+                                                                            document.addEventListener('DOMContentLoaded', function() {
+                                                                                document.querySelectorAll('.footer-info-tooltip').forEach(function(tooltip) {
+                                                                                    var text = tooltip.querySelector('.footer-info-tooltip-text');
+                                                                                    if(text) {
+                                                                                        tooltip.addEventListener('mouseenter', function() {
+                                                                                            text.style.visibility = 'visible';
+                                                                                            text.style.opacity = '1';
+                                                                                        });
+                                                                                        tooltip.addEventListener('mouseleave', function() {
+                                                                                            text.style.visibility = 'hidden';
+                                                                                            text.style.opacity = '0';
+                                                                                        });
+                                                                                        tooltip.addEventListener('focus', function() {
+                                                                                            text.style.visibility = 'visible';
+                                                                                            text.style.opacity = '1';
+                                                                                        });
+                                                                                        tooltip.addEventListener('blur', function() {
+                                                                                            text.style.visibility = 'hidden';
+                                                                                            text.style.opacity = '0';
+                                                                                        });
+                                                                                    }
+                                                                                });
+                                                                            });
+                                                                        </script>
+                                                                    <?php endif; ?>
+                                                                </a></li><?php endif;?>
                                                                 <?php endwhile; ?>
                                                                 </ul>
                                                             <?php endif; ?>
