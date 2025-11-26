@@ -14,7 +14,7 @@
     <div class="container">
         <div class="title">
             <h2><?= esc_html($headline); ?></h2>
-            <?php if($buttonUrl):?><a href="<?= esc_url($buttonUrl); ?>" target="_blank" class="desktop-button btn btn-primary">
+            <?php if($buttonUrl):?><a href="<?= esc_url($buttonUrl); ?>" class="desktop-button btn btn-primary">
                 <?= esc_html($buttonText); ?>
                 <i class="bi bi-arrow-right"></i>
             </a>
@@ -41,7 +41,7 @@
                     $post_date = get_the_date();
                     $post_excerpt = get_the_excerpt();
             ?>
-                <a class="blog-post" href="<?= esc_url($post_url) ?>" target="_blank" rel="noopener noreferrer">
+                <a class="blog-post" href="<?= esc_url($post_url) ?>">
                     <?php if($post_image): ?>
                         <img class="w-100" loading="lazy" decoding="async" src="<?= esc_url($post_image) ?>" alt="<?= esc_attr($post_title) ?>">
                     <?php endif; ?>
