@@ -16999,6 +16999,9 @@ textarea.form-control-lg {
   }
 }
 
+.single .entry-content {
+  text-align: justify;
+}
 .single .post {
   padding-block: 3rem;
 }
