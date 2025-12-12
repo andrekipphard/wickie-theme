@@ -55,22 +55,28 @@
             </div>
             <?php if($mediaType === 'Image'):?><div class="image">
                 <img loading="lazy" decoding="async" src="<?= wp_get_attachment_image_url($image, 'large'); ?>" alt="<?= esc_attr(get_post_meta($image, '_wp_attachment_image_alt', true)); ?>">
+            </div>
+            <?php endif;?>
+            <?php if($mediaType === 'Video'):?><div class="image">
+                <video controls autoplay muted preload="metadata" class="video">
+                    <source src="<?= $video; ?>" type="video/mp4">
+                </video>
+            </div>
+            <?php endif;?>
+            <?php if($mediaType === 'Youtube'):?><div class="image">
+                <div class="iframe-container">
+                    <iframe src="<?= $youtube; ?>?autoplay=1&mute=1&controls=0&modestbranding=1&rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                 </div>
-                <?php endif;?>
-                <?php if($mediaType === 'Video'):?><div class="image">
-                    <video controls autoplay muted preload="metadata" class="video">
-                        <source src="<?= $video; ?>" type="video/mp4">
-                    </video>
-                </div>
-                <?php endif;?>
-                <?php if($mediaType === 'Youtube'):?><div class="image">
-                    <div class="iframe-container">
-                        <iframe src="<?= $youtube; ?>?autoplay=1&mute=1&controls=0&modestbranding=1&rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                    </div>
-                </div>
-                <?php endif;?>
-                <?php if($mediaType === 'Lottie'):?><div class="image">
-                    <?= $lottie; ?>
+            </div>
+            <?php endif;?>
+            <?php if($mediaType === 'Lottie'):?><div class="image">
+                <?= $lottie; ?>
+            </div>
+            <?php endif;?>
+            <?php if($mediaType === 'Text'):?>
+                <?php $mediaTypeText = get_sub_field('mediatype_text'); ?>
+                <div class="image">
+                    <?= $mediaTypeText; ?>
                 </div>
             <?php endif;?>
         </div>
