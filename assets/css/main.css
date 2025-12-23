@@ -16999,6 +16999,13 @@ textarea.form-control-lg {
   }
 }
 
+.hero-slider .swiper-button-next, .hero-slider .swiper-button-prev {
+  color: #93E100;
+}
+.hero-slider .swiper-pagination-bullet-active {
+  background-color: #93E100;
+}
+
 .single .entry-content {
   text-align: justify;
 }
